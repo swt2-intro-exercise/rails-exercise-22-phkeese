@@ -1,2 +1,21 @@
-<h1>Author#new</h1>
-<p>Find me in app/views/author/new.html.erb</p>
+<%= form_with scope: :author, local: true do |form| %>
+	<h1>Create new Author</h1>
+  <p>
+    <%= form.label :"First Name" %><br>
+    <%= form.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :"Last Name" %><br>
+    <%= form.text_field :last_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :"Homepage" %><br>
+    <%= form.text_field :homepage %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
