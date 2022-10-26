@@ -55,6 +55,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get "new_author" => 'author#new'
-  get "author/new"
+  resources :author
 end
