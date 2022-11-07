@@ -16,7 +16,22 @@ RSpec.describe "authors index page", type: :feature do
     expect(page).to have_link 'New', href: new_author_path
   end
 
-  # The overview page should contain an HTML table with the headings "Name" and "Homepage",
-  # listing the full names as well as homepages of authors and should link to individual author's detail pages.
-  # The page should also contain a link to add new authors.
+  it "should contain names, homepages and a link to each author's detail and edit page" do
+    @author1 = Author.new(:first_name => "Alan", :last_name => "Turing", :homepage => "example.org")
+    @author1.save
+
+    visit authors_path
+
+    expect(page).to have_css("table")
+    within "table" do
+      Author.all.each do |author|
+        expect(page).to have_text(author.first_name)
+        expect(page).to have_text(author.last_name)
+        expect(page).to have_text(author.homepage)
+
+        expect(page).to have_link("Show", :href => author_path(author.id))
+        expect(page).to have_link("Edit", :href => edit_author_path(author.id))
+      end
+    end
+  end
 end
