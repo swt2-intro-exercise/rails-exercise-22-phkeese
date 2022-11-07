@@ -21,4 +21,9 @@ RSpec.describe Author, type: :model do
     expect(author.name).to eq("Alan Turing")
   end
 
+  it "should have a non-empty last name" do
+    author = Author.new(:last_name => "")
+    expect(author).to_not be_valid
+  end
+
 end
