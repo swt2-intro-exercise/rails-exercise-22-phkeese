@@ -3,6 +3,5 @@ class Author < ApplicationRecord
 		return "#{self.first_name} #{self.last_name}"
 	end
 
-	validates :last_name, presence: true,
-						length: { minimum: 1 }
+	validates :last_name, presence: true
 end
