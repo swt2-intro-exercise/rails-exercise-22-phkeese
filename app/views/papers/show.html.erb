@@ -3,9 +3,10 @@
 <%= render @paper %>
 
 <div>
+  <strong>Authors</strong>
   <% @paper.authors.each do |author| %>
     <p>
-      <% author.name %>
+      <%= author.name %>
     </p>
   <% end %>
 </div>
