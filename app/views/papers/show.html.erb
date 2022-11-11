@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @paper %>
+<% render @paper.authors %>
 
 <div>
   <%= link_to "Edit this paper", edit_paper_path(@paper) %> |
