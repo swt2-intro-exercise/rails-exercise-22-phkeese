@@ -4,4 +4,8 @@ class Author < ApplicationRecord
 	end
 
 	validates :last_name, presence: true
+
+	def papers
+		[]
+	end
 end
